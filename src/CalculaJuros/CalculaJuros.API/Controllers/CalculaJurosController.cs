@@ -3,7 +3,7 @@
     using System.Threading.Tasks;
     using CalculaJuros.Domain.DTO;
     using CalculaJuros.Domain.Exception;
-    using CalculaJuros.Domain.Interfaces;
+    using CalculaJuros.Domain.Interfaces.Services;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
 
@@ -11,18 +11,15 @@
     [Route("api/")]
     public class CalculaJurosController : ControllerBase
     {
-
-        private readonly ILogger<CalculaJurosController> _logger;
         private readonly ICalculaJurosService _calculaJurosService;
 
-        public CalculaJurosController(ILogger<CalculaJurosController> logger, ICalculaJurosService calculaJurosService)
+        public CalculaJurosController(ICalculaJurosService calculaJurosService)
         {
-            _logger = logger;
             _calculaJurosService = calculaJurosService;
         }
 
         [HttpGet("calculajuros")]
-        public async Task<IActionResult> CalcularJuros(decimal valorInicial, int meses)
+        public async Task<IActionResult> CalcularJuros([FromQuery] decimal valorInicial, [FromQuery] int meses)
         {
             try
             {

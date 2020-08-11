@@ -1,9 +1,8 @@
 ﻿namespace CalculaJuros.API.Controllers
 {
     using System.Threading.Tasks;
-    using CalculaJuros.Domain.Interfaces;
+    using CalculaJuros.Domain.Interfaces.Services;
     using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
 
     [Route("api/")]
     [ApiController]
@@ -15,9 +14,8 @@
             _showMeTheCodeService = showMeTheCodeService;
         }
 
-        [HttpGet]
-        [Route("showmethecode")]
-        public async Task<IActionResult> ObterUrlAsync()
+        [HttpGet("showmethecode")]
+        public async Task<IActionResult> ObterUrl()
         {
             return Ok(await _showMeTheCodeService.ObterUrlAsync());
         }

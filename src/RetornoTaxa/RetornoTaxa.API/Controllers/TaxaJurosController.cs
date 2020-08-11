@@ -22,8 +22,7 @@
             _taxaService = taxaService;
         }
 
-        [HttpGet]
-        [Route("taxaJuros")]
+        [HttpGet("taxaJuros")]
         public async Task<IActionResult> ObterTaxaJuros()
         {
             return Ok(await _taxaService.ObterRetornoTaxaAsync());

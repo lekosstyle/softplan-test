@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  retornotaxa.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "32775:80"
+
+  calculajuros.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "32773:80"
+

@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  retornotaxa.api:
+    image: ${DOCKER_REGISTRY-}retornotaxaapi
+    build:
+      context: .
+      dockerfile: src/RetornoTaxa/RetornoTaxa.API/Dockerfile
+
+  calculajuros.api:
+    image: ${DOCKER_REGISTRY-}calculajurosapi
+    build:
+      context: .
+      dockerfile: src/CalculaJuros/CalculaJuros.API/Dockerfile
+
